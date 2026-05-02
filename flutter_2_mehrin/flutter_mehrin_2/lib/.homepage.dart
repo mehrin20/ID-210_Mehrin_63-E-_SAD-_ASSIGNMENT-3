@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mehrin_2/Login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -42,6 +43,86 @@ class HomePage extends StatelessWidget {
                 ),
               ),
             ), //Padding
+            Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return LoginPage();
+                          },
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pink.shade400,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(70),
+                        side: BorderSide(color: Colors.pink.shade900, width: 5),
+                      ),
+                    ),
+
+                    child: Text(
+                      " Page",
+                      style: TextStyle(
+                        color: Colors.pink.shade100,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 10),
+                  OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      backgroundColor: Colors.pink.shade400,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(70),
+                        side: BorderSide(color: Colors.pink.shade900, width: 5),
+                      ),
+                    ),
+                    child: Text(
+                      "OutlinedButton",
+                      style: TextStyle(
+                        color: Colors.pink.shade100,
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.pink.shade400,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(50),
+                          side: BorderSide(
+                            color: Colors.pink.shade900,
+                            width: 5,
+                          ),
+                        ),
+                      ),
+
+                      child: Text(
+                        "TextButton",
+                        style: TextStyle(
+                          color: Colors.pink.shade100,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Container(
               width: 800,
               height: 100,
@@ -120,8 +201,8 @@ class HomePage extends StatelessWidget {
                 child: Center(
                   child: Image.asset(
                     "assets/images/flutter.png",
-                    height: 200,
-                    width: 180,
+                    height: 400,
+                    width: 380,
                   ),
                 ),
               ), //Card
