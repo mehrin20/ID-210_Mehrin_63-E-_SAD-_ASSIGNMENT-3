@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Center(
                 child: Text(
-                  "Weather App",
+                  "Weather  App",
                   style: TextStyle(
                     color: Colors.pink.shade700,
                     fontSize: 100,
