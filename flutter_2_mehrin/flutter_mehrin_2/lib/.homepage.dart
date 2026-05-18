@@ -192,7 +192,7 @@ class HomePage extends StatelessWidget {
         child: Icon(Icons.search),
       ), //FloatingActionButton
 
-      endDrawer: NavigationDrawer(
+      drawer: NavigationDrawer(
         backgroundColor: Colors.pink.shade50,
         children: [
           ListTile(

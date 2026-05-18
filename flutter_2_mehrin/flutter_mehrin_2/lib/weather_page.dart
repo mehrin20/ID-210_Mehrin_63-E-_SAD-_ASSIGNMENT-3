@@ -119,7 +119,7 @@ class _WeatherPageState extends State<WeatherPage> {
                     TextField(
                       controller: _cityController,
                       decoration: InputDecoration(
-                        hintText: ' Sylhet, Dhaka, London',
+                        hintText: ' city name .....',
                         prefixIcon: Icon(
                           Icons.location_city,
                           color: Colors.pink.shade700,
@@ -158,7 +158,7 @@ class _WeatherPageState extends State<WeatherPage> {
                 ),
               ),
             ),
-            // LOADING
+
             if (_isLoading)
               Padding(
                 padding: const EdgeInsets.all(10),
@@ -189,7 +189,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),
                 ),
               ),
-            // CITY NAME AND TEMP
+
             if (_hasResult)
               Padding(
                 padding: const EdgeInsets.all(10),
@@ -237,7 +237,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),
                 ),
               ),
-            // WEATHER DETAILS
+
             if (_hasResult)
               Padding(
                 padding: const EdgeInsets.all(10),
@@ -340,7 +340,7 @@ class _WeatherPageState extends State<WeatherPage> {
                   ),
                 ),
               ),
-            // SAVE BUTTON
+
             if (_hasResult)
               Padding(
                 padding: const EdgeInsets.all(10),

@@ -61,7 +61,7 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
               color: Colors.pink.shade700,
               fontWeight: FontWeight.bold,
             ),
-          ), //Text
+          ),
           content: TextField(
             controller: editController,
             decoration: InputDecoration(
@@ -70,7 +70,7 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
                 borderRadius: BorderRadius.circular(20),
               ),
             ),
-          ), //TextField
+          ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
@@ -78,7 +78,7 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
                 "Cancel",
                 style: TextStyle(color: Colors.pink.shade400),
               ),
-            ), //TextButton
+            ),
             ElevatedButton(
               onPressed: () async {
                 String newName = editController.text.trim();
@@ -98,9 +98,9 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
                 ),
               ),
               child: Text("Save"),
-            ), //ElevatedButton
+            ),
           ],
-        ); //AlertDialog
+        );
       },
     );
   } //editCity
@@ -113,7 +113,7 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
         title: Text("Saved Cities"),
         backgroundColor: Colors.pink.shade200,
         foregroundColor: Colors.pink.shade900,
-      ), //AppBar
+      ),
 
       body: SingleChildScrollView(
         child: Column(
@@ -130,7 +130,7 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
                   ),
                 ),
               ),
-            ), //Padding
+            ),
 
             if (_cities.isEmpty)
               Padding(
@@ -251,7 +251,6 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
           ],
         ),
       ),
-      //SingleChildScrollView
     );
   }
 }
