@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mehrin_2/Login_page.dart';
+import 'package:flutter_mehrin_2/weather_page.dart';
+import 'package:flutter_mehrin_2/cities_page.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -9,15 +11,19 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.pink.shade100,
       appBar: AppBar(
-        title: Text("Home "), //Text
+        title: Text("Homepage"),
         backgroundColor: Colors.pink.shade200,
-        foregroundColor: Colors.pink.shade100,
-        // leading: Icon(Icons.home, color: Colors.amber),
-        // actions: [
-        //   IconButton(onPressed: () {}, icon: Icon(Icons.settings)),
-        //   IconButton(onPressed: () {}, icon: Icon(Icons.person)),
-        // ],
+        foregroundColor: Colors.pink.shade900,
+        actions: [
+          IconButton(
+            onPressed: () async {
+              await Supabase.instance.client.auth.signOut();
+            },
+            icon: Icon(Icons.logout),
+          ), //IconButton
+        ],
       ), //AppBar
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -25,104 +31,82 @@ class HomePage extends StatelessWidget {
               padding: const EdgeInsets.all(10),
               child: Center(
                 child: Text(
-                  "Leading  University ",
+                  "Weather App",
                   style: TextStyle(
                     color: Colors.pink.shade700,
-                    fontSize: 90,
+                    fontSize: 100,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ), //Padding
+
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10),
               child: Center(
                 child: Text(
-                  "Batch - 63",
-                  style: TextStyle(color: Colors.pink.shade800, fontSize: 70),
+                  "Check your weather ",
+                  style: TextStyle(color: Colors.pink.shade800, fontSize: 40),
                 ),
               ),
             ), //Padding
-            Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return LoginPage();
-                          },
-                        ),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pink.shade400,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(70),
-                        side: BorderSide(color: Colors.pink.shade900, width: 5),
-                      ),
-                    ),
 
-                    child: Text(
-                      " Page",
-                      style: TextStyle(
-                        color: Colors.pink.shade100,
-                        fontSize: 20,
-                      ),
+            Padding(
+              padding: const EdgeInsets.all(30),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return WeatherPage();
+                      },
                     ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink.shade400,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(70),
+                    side: BorderSide(color: Colors.pink.shade900, width: 5),
                   ),
-                  SizedBox(width: 10),
-                  OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      backgroundColor: Colors.pink.shade400,
-                      foregroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(70),
-                        side: BorderSide(color: Colors.pink.shade900, width: 5),
-                      ),
-                    ),
-                    child: Text(
-                      "OutlinedButton",
-                      style: TextStyle(
-                        color: Colors.pink.shade100,
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.pink.shade400,
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                          side: BorderSide(
-                            color: Colors.pink.shade900,
-                            width: 5,
-                          ),
-                        ),
-                      ),
+                ),
+                child: Text(
+                  "Check Weather",
+                  style: TextStyle(color: Colors.pink.shade100, fontSize: 20),
+                ),
+              ), //ElevatedButton
+            ), //Padding
 
-                      child: Text(
-                        "TextButton",
-                        style: TextStyle(
-                          color: Colors.pink.shade100,
-                          fontSize: 20,
-                        ),
-                      ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SavedCitiesPage();
+                      },
                     ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink.shade400,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(70),
+                    side: BorderSide(color: Colors.pink.shade900, width: 5),
                   ),
-                ],
-              ),
-            ),
+                ),
+                child: Text(
+                  "Saved Cities",
+                  style: TextStyle(color: Colors.pink.shade100, fontSize: 20),
+                ),
+              ), //ElevatedButton
+            ), //Padding
+
             Container(
               width: 800,
               height: 100,
@@ -135,21 +119,21 @@ class HomePage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Student Portal ",
+                  "Weather Portal",
                   style: TextStyle(
                     color: Colors.pink.shade50,
-                    fontSize: 40,
+                    fontSize: 35,
                     fontWeight: FontWeight.bold,
                   ),
                 ), //Text
               ),
             ), //Container
+
             Container(
               width: 800,
-              height: 80,
+              height: 100,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(30),
-              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Colors.pink.shade400,
                 border: Border.all(color: Colors.pink.shade900, width: 5),
@@ -157,21 +141,21 @@ class HomePage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Sections",
+                  "Search Any City ",
                   style: TextStyle(
                     color: Colors.pink.shade50,
-                    fontSize: 25,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ), //Text
               ),
             ), //Container
+
             Container(
               width: 800,
-              height: 80,
+              height: 100,
               padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(30),
-              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: Colors.pink.shade400,
                 border: Border.all(color: Colors.pink.shade900, width: 5),
@@ -179,42 +163,33 @@ class HomePage extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  "Students List",
+                  "Save Favourite Cities ",
                   style: TextStyle(
                     color: Colors.pink.shade50,
-                    fontSize: 25,
+                    fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ), //Text
               ),
             ), //Container
-            SizedBox(
-              height: 200,
-              width: 600,
-
-              child: Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  side: BorderSide(color: Colors.pink.shade900, width: 5),
-                ),
-                color: Colors.pink.shade300,
-                child: Center(
-                  child: Image.asset(
-                    "assets/images/flutter.png",
-                    height: 400,
-                    width: 380,
-                  ),
-                ),
-              ), //Card
-            ), //SizeBox
           ],
         ), //Column
-      ),
+      ), //SingleChildScrollView
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.pink.shade900,
         foregroundColor: Colors.pink.shade100,
-        onPressed: () {},
-        child: Icon(Icons.admin_panel_settings_sharp),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) {
+                return WeatherPage();
+              },
+            ),
+          );
+        },
+        child: Icon(Icons.search),
       ), //FloatingActionButton
 
       endDrawer: NavigationDrawer(
@@ -222,18 +197,43 @@ class HomePage extends StatelessWidget {
         children: [
           ListTile(
             leading: Icon(Icons.home, color: Colors.pink.shade900),
-            title: Text("HomePage"),
+            title: Text("Home"),
             onTap: () {},
           ), //ListTile
           ListTile(
-            leading: Icon(Icons.settings, color: Colors.pink.shade900),
-            title: Text("Settings"),
-            onTap: () {},
+            leading: Icon(Icons.cloud, color: Colors.pink.shade900),
+            title: Text("Check Weather"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return WeatherPage();
+                  },
+                ),
+              );
+            },
           ), //ListTile
           ListTile(
-            leading: Icon(Icons.person, color: Colors.pink.shade900),
-            title: Text("Profile"),
-            onTap: () {},
+            leading: Icon(Icons.bookmark, color: Colors.pink.shade900),
+            title: Text("Saved Cities"),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SavedCitiesPage();
+                  },
+                ),
+              );
+            },
+          ), //ListTile
+          ListTile(
+            leading: Icon(Icons.logout, color: Colors.pink.shade900),
+            title: Text("Logout"),
+            onTap: () async {
+              await Supabase.instance.client.auth.signOut();
+            },
           ), //ListTile
         ],
       ), //NavigationDrawer
