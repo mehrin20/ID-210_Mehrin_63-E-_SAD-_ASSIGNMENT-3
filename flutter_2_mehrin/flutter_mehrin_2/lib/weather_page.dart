@@ -96,6 +96,7 @@ class _WeatherPageState extends State<WeatherPage> {
               padding: const EdgeInsets.all(10),
               child: Container(
                 width: double.infinity,
+
                 padding: EdgeInsets.all(20),
                 margin: EdgeInsets.all(10),
                 decoration: BoxDecoration(
@@ -109,7 +110,7 @@ class _WeatherPageState extends State<WeatherPage> {
                       "Enter City Name",
                       style: TextStyle(
                         color: Colors.pink.shade900,
-                        fontSize: 22,
+                        fontSize: 52,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

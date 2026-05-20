@@ -122,7 +122,7 @@ class _SavedCitiesPageState extends State<SavedCitiesPage> {
               padding: const EdgeInsets.all(10),
               child: Center(
                 child: Text(
-                  "Saved Cities ",
+                  " Cities ",
                   style: TextStyle(
                     color: Colors.pink.shade700,
                     fontSize: 35,
